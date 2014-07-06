@@ -1,0 +1,34 @@
+.post > h1, .post > h2, .post > h3, .post > h4, .post > h5 {
+	/*text-shadow: 3px 1px 10px rgba(0, 0, 0, 0.15);*/
+	text-shadow: rgba(0, 0, 0, 0.15) 0px 1px 3px;
+}
+
+
+.post-title a {
+	text-shadow: rgba(144, 169, 89, 0.5) 0px 1px 3px;
+}
+
+.post-title a:hover {
+	text-decoration: none;
+}
+
+html {
+	font-family: "Roboto", "PT Sans", Helvetica, Arial, sans-serif;
+	font-size: 1.1em;
+}
+
+.post {
+	line-height: 1.9em;
+}
+
+.shadowed {
+    -webkit-filter: drop-shadow(12px 12px 25px rgba(0,0,0,0.5));
+    filter: url(#drop-shadow);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+    filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+}
+
+.post img {
+	display: block;
+	margin: auto;
+}

@@ -1,0 +1,19 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:	  'pygments'
+
+# Permalinks
+permalink:        /posts/:title
+
+# Setup
+title:            'Code is Fun'
+tagline:          'Adrian Scipcă''s blog'
+description:      'Technical ramblings of a Senior Software Engineer'
+url:              http://benishor.github.io
+baseurl:          /
+
+author:
+  name:           'Adrian Scipcă'
+  url:            https://github.com/benishor
+
+paginate:         5
