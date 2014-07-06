@@ -9,7 +9,7 @@ permalink:        /posts/:title
 title:            'Code is Fun'
 tagline:          'Adrian Scipcă''s blog'
 description:      'Technical ramblings of a Senior Software Engineer'
-url:              http://benishor.github.io
+url:              http://blog.scene.ro
 baseurl:          /
 
 author:
