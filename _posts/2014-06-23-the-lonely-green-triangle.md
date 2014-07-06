@@ -2,6 +2,8 @@
 layout: post
 title: The Lonely Green Triangle
 excerpt: Your mission should you choose to accept it is to write an application that opens a fullscreen window onto which a green triangle using OpenGL is drawn; after 3 seconds the application must close.
+tags:
+    - demoscene
 ---
 ### Target
 

@@ -1,0 +1,33 @@
+---
+layout: page
+title: Demoscene Lab
+tag: demoscene
+---
+<p></p>
+Just in case you don't know what <strong>demoscene</strong> is, let me quote Wikipedia's definition for it:
+<blockquote>The demoscene is a computer art subculture that specializes in producing demos, which are audio-visual presentations that run in real-time on a computer. The main goal of a demo is to show off programming, artistic, and musical skills.</blockquote>
+
+<p></p>
+I have been part of the Romanian demoscene since 1997 as <strong><i>Shadow/Eyes Team</i></strong> and later <strong><i>benny/roscene crew</i></strong>. If you are wondering, those constructions are in the form of <strong><i>nickname/group</i></strong>.
+
+<p></p>
+Although I have not written nor released too many demos, I have always been interested in learning the magic behind the creation of this kind of programs which I consider work of art; to me they represent a peak of programming skills, enabling you to communicate directly to your audience in a way that enterprise software will never be able to.
+
+<p></p>
+Through the current blog section I aim to give back to the community best to my abbilities the knowledge I acquired from many stars of the <i>scene</i>. Embark with me in a journey of creating a 64k intro in a pragmatic evolutionary way.
+
+<p></p>
+Here is the list of posts that accompanies the code for <a href="https://github.com/benishor/demoscene-lab" target="_blank">Demoscene Lab</a>:
+
+<p></p>
+
+<dl>
+  {% for post in site.posts reversed %}
+  {% for tag in post.tags %}
+  {% if tag == page.tag %}
+  <dt><a href="{{ post.url }}">{{ post.title }}</a></dt>
+  <dd>{{ post.excerpt | markdownify}}</dd>
+  {% endif %}
+  {% endfor %}
+  {% endfor %}
+</dl>

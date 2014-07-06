@@ -1,6 +1,8 @@
 ---
 layout: post
 title: The Wired Swirling Cubes
+tags:
+    - demoscene
 excerpt: "This time our aim is to replace the dull triangle with three wireframe cubes placed one next to another, all in our current view. They should slowly rotate on all axes around their center geometrical center with different amounts and the application should close once 5 seconds pass."
 ---
 ### Target

@@ -1,6 +1,8 @@
 ---
 layout: post
 title: And God said "Let there be light!"
+tags:
+    - demoscene
 excerpt: "Congratulations! You accomplished the previous task and now you proudly look at them wires rotating around in style. But something's bothering you; they seem all a bit ... thin, shall we say? Your next mission is to get them dressed up in simple clothes and turn the light on. In common tongue this means that each cube should be flat shaded and have a distinct colour while performing the same mesmerizing dance as before.
 And to add a bit of style, have the light modulate its energy from none to full twice in the same 5 second interval."
 ---
