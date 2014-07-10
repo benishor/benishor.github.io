@@ -86,7 +86,7 @@ CubeScene::CubeScene() {
 
 Ok, back to our regular schedule, namely the `CubeScene` interface. The `update()` method is responsible for updating mesh orientation with respect to the frame time and the `render()` method is responsible for, well, drawing them meshes. And that's all there is to the `CubeScene` for now.
 
-We should move on and see what a `Mesh` looks like. We have spotted a couple of attributes so far: we mentioned that a `Mesh` has _facets_, _vertices_ and _edges_. This 
+We should move on and see what a `Mesh` looks like. We have spotted a couple of attributes so far: we mentioned that a `Mesh` has _facets_, _vertices_ and _edges_.
 
 {% highlight c++ %}
 class Mesh {
