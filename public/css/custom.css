@@ -12,6 +12,7 @@
 	text-decoration: none;
 }
 
+
 html {
 	font-family: "Roboto", "PT Sans", Helvetica, Arial, sans-serif;
 	font-size: 1.1em;
@@ -68,8 +69,8 @@ Zeno zeu ozeneu
 .post-title a:hover {
 	background-image: linear-gradient(to bottom, #90a959 50%, #90a959 50%);
 	background-repeat: repeat-x;
-	background-size: 4px 4px;
-	background-position: 0 91%;
+	background-size: 5px 5px;
+	background-position: 0 95%;
 	text-shadow: #fff -3px 0px 0px,
 				#fff 3px 0px 0px,
 				#fff 0px 3px 0px,
