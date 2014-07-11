@@ -37,8 +37,8 @@ What you will need:
 <dl>
     <dt>Why?</dt>
     <dd>Because I wanted to share what I know with the wide audience. Mind you, this will not turn you into a demoscene superstar but will give you a decent understanding of how things are done and a base to start evolving from.</dd>
-    <dt></dt>
-    <dd></dd>
+    <dt>Why OpenGL 2.1?</dt>
+    <dd>That's a bit embarassing actually. My desktop has a card that supports OpenGL 3.1 but I also have an old laptop which I use to code on while in bed. I bet you can figure out the answer from here onwards :-)</dd>
     <dt></dt>
     <dd></dd>
     <dt></dt>
