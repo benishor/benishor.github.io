@@ -3,6 +3,9 @@
 markdown:         kramdown # for abbreviations and footnotes
 highlighter:	  'pygments'
 
+kramdown:
+  input: GFM
+  
 # Permalinks
 permalink:        /posts/:title
 
