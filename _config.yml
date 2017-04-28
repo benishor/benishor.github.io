@@ -20,4 +20,5 @@ author:
   name:           'Adrian Scipcă'
   url:            https://github.com/benishor
 
+gems: [jekyll-paginate]
 paginate:         5
