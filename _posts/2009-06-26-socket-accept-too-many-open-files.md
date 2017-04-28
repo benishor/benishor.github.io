@@ -5,16 +5,16 @@ excerpt: "Did ever a socket `accept()` fail on you with the _Too many open files
 ---
 
 
-###PROBLEM
+### PROBLEM
 
 Socket `accept()` fails with error _Too many open files_.
 
-###WHAT DOES THIS MEAN
+### WHAT DOES THIS MEAN
 
 It means the application is using more file descriptors than the maximum allowable set.
 
 
-###WHAT TO DO
+### WHAT TO DO
 
 Let's start by finding the pid of our program using the following command:
 {% highlight bash%}
@@ -70,7 +70,7 @@ If the application is not actively using that many file descriptors it means you
 
 Here are some useful commands for debugging your application:
 
-####List the file descriptors used by a certain application 
+#### List the file descriptors used by a certain application 
 `ls -l /proc/<pid>/fd/`
 
 Example:
@@ -86,7 +86,7 @@ lrwx------  1 root root 64 May 28 12:29 5 -> socket:[230111]
 [root@cow ~]$
 {% endhighlight%}
 
-####List the file descriptors used by a certain application 
+#### List the file descriptors used by a certain application 
 
 `netstat -ape | grep pid/`
 Example:
@@ -98,7 +98,7 @@ tcp        0      0 192.168.3.115:50653         192.168.3.115:9000          ESTA
 [root@cow ~]$
 {% endhighlight%}
 
-####Count the sockets in TIME_WAIT on a certain port
+#### Count the sockets in TIME_WAIT on a certain port
 
 `netstat -an | grep ':port[[:space:]]' | grep TIME_WAIT | wc -l`
 
@@ -113,7 +113,7 @@ If you happen to have a large number of sockets in `TIME_WAIT`, it may be a sign
 
 ---
 
-###Useful links
+### Useful links
 
 
 * [http://linuxgazette.net/115/nirendra.html](http://linuxgazette.net/115/nirendra.html)

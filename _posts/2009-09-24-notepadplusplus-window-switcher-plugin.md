@@ -8,12 +8,12 @@ For quite some time, [Notepad++](http://notepad-plus.sourceforge.net/uk/site.htm
 This is the initial version of the __Window Switcher__ Notepad++ plugin.
 
 
-###What does it do
+### What does it do
 
 * it allows window switching bound to a shortcut. Default shortcuts are set to <kbd>ALT+1<kbd> ... <kbd>ALT+0</kbd>
 * it switches between the corresponding `.h`/`.c`/`.cpp` file through the means of a shortcut. The default shortcut is <kbd>ALT</kbd>+<kbd>O</kbd>
 
-###How to install
+### How to install
 
 1. copy the plugin corresponding to your Notepad++ version into the Notepad++\plugins directory. Use `NppWindowSwitcherAnsi.dll` for ANSI version and `NppWindowSwitcherUnicode.dll` for UNICODE.
 2. configure the shortcuts
