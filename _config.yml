@@ -7,7 +7,7 @@ kramdown:
   input: GFM
   
 # Permalinks
-permalink:        /posts/:title/index.html
+permalink:        /posts/:title/
 
 # Setup
 title:            'Code is Fun'
