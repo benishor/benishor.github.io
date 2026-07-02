@@ -12,5 +12,22 @@
     </div>
 
 	  {% include analytics.html %}
+
+    {% if page.mermaid %}
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: false });
+      // Kramdown+Rouge renders ```mermaid as <div class="language-mermaid">…</div>
+      // with the source tokenized into <span>s; textContent recovers the raw text
+      // (and decodes &lt;br/&gt; back to <br/>).
+      document.querySelectorAll('.language-mermaid').forEach((block) => {
+        const div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = block.textContent;
+        block.replaceWith(div);
+      });
+      mermaid.run();
+    </script>
+    {% endif %}
   </body>
 </html>
