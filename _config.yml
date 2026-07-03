@@ -11,13 +11,13 @@ permalink:        /posts/:title/
 
 # Setup
 title:            'Code is Fun'
-tagline:          'Adrian Scipcă''s blog'
+tagline:          'Adrian Scripcă''s blog'
 description:      'Technical ramblings of a Senior Software Engineer'
 url:              https://blog.scene.ro
 baseurl:          /
 
 author:
-  name:           'Adrian Scipcă'
+  name:           'Adrian Scripcă'
   url:            https://github.com/benishor
 
 plugins: [jekyll-paginate]
