@@ -12,9 +12,9 @@ mermaid: true
 excerpt: "Part 3 of the hamtools series: how the two bits I'm proudest of work — keying real CW over a jittery network without wrecking the timing, and keeping one logbook in sync across every machine with no server."
 ---
 
-The first two posts covered [the story]({% post_url 2026-07-02-hamtools-logging-stack %}) and [how to set everything up]({% post_url 2026-07-03-hamtools-components-and-setup %}). This one is for the curious: the two bits of hamtools I'm most pleased with — keying CW over a jittery network without wrecking the timing, and keeping one logbook in sync across every machine with no server.
+The first two posts covered [the story]({% post_url 2026-07-02-hamtools-logging-stack %}) and [how to set everything up]({% post_url 2026-07-03-hamtools-components-and-setup %}). This one is for the curious: the two bits of hamtools I'm most pleased with: keying CW over a jittery network without wrecking the timing and keeping one logbook in sync across every machine with no server.
 
-## The part I'm proudest of: keying CW over the internet
+## Keying CW over the internet
 
 Here's the problem. You want to send real, paddle-formed Morse, but the transmitter is on the other end of an unreliable network. The naive approach — sample the paddle, send "key down" / "key up" packets, and drive the rig's keying line directly from whenever those packets arrive — sounds *terrible*. Network jitter lands directly on your dit/dah timing, and Morse whose element lengths wobble is Morse nobody can copy.
 
@@ -30,7 +30,7 @@ The felt experience is semi-break-in: your sidetone is instant (local), and the 
 
 That's the whole design philosophy of the suite in one feature. Do the latency-critical work where the latency is low (at the paddle, on local hardware), push *timestamps* not *timing* across the network, and reconstruct on the far side behind a buffer. Every component earns its place in that chain: **usb-paddles** gives jitter-free input, **xlog2** owns the keyer and the operator's clock, and **cwsd** owns the deadline-scheduled replay next to the rig.
 
-## The sync mesh: one logbook, everywhere
+## The sync mesh
 
 A logging setup that spans machines needs the *log* to span machines too. It would be tempting to reach for a server and a "sync" button, but that's the wrong shape for a hobby station — I don't want a piece of infrastructure I have to keep running just so my phone and my shack PC agree on who I worked.
 

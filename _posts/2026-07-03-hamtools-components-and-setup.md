@@ -11,7 +11,7 @@ tags:
 excerpt: "Part 2 of the hamtools series: a tour of the three components — cwsd, xlog2 and usb-paddles — what each does and how to install and configure it."
 ---
 
-This is the practical half of the [hamtools story]({% post_url 2026-07-02-hamtools-logging-stack %}) — a tour of the three components, what each does and how to install and configure it. A [third post]({% post_url 2026-07-03-hamtools-how-it-works %}) then digs into the two pieces I'm proudest of. Everything is GPL-3.0, and every component talks over IP, so "local" and "remote" are the same setup with different addresses.
+This is the practical part of the [hamtools story]({% post_url 2026-07-02-hamtools-logging-stack %}) — a tour of the three components, what each does and how to install and configure it. A [third post]({% post_url 2026-07-03-hamtools-how-it-works %}) then digs into the two pieces I'm proudest of. Everything is GPL-3.0, and every component talks over IP, so "local" and "remote" are the same setup with different addresses.
 
 ## Components
 
