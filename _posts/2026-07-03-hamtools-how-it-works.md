@@ -72,4 +72,6 @@ That's the series: [part 1]({% post_url 2026-07-02-hamtools-logging-stack %}) fo
 - **usb-paddles** — <https://github.com/yo6ssw/usb-paddles>
 - **hamtools hub** (docs entry point) — <https://github.com/yo6ssw/hamtools>
 
+Do give it a spin — and tell me how it goes, especially which rig you got it working with. Open an issue on any of the repos, or you can reach me at [adrian@scripca.ro](mailto:adrian@scripca.ro), as _benishor_ on [GitHub](https://github.com/benishor), or _YO6SSW_ on [QRZ](https://www.qrz.com/db/YO6SSW).
+
 73 · YO6SSW

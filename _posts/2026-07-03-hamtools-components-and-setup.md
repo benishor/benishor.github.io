@@ -1,6 +1,7 @@
 ---
 layout: post
 date: 2026-07-03 00:01:00
+mermaid: true
 title: "Building a network-native ham station (part 2): components and setup"
 tags:
     - ham-radio
@@ -11,9 +12,24 @@ tags:
 excerpt: "Part 2 of the hamtools series: a tour of the three components — cwsd, xlog2 and usb-paddles — what each does and how to install and configure it."
 ---
 
-This is the practical part of the [hamtools story]({% post_url 2026-07-02-hamtools-logging-stack %}) — a tour of the three components, what each does and how to install and configure it. A [third post]({% post_url 2026-07-03-hamtools-how-it-works %}) then digs into the two pieces I'm proudest of. Everything is GPL-3.0, and every component talks over IP, so "local" and "remote" are the same setup with different addresses.
+This is the practical part of the [hamtools story]({% post_url 2026-07-02-hamtools-logging-stack %}), a tour of the three components, what each does and how to install and configure it. A [third post]({% post_url 2026-07-03-hamtools-how-it-works %}) then digs into the two pieces I'm proudest of. Everything is GPL-3.0, and every component talks over IP, so "local" and "remote" are the same setup with different addresses.
 
 ## Components
+
+The shape of it: **cwsd** sits next to the radio and puts it on the network; **xlog2** (and its mobile sibling) drive it from wherever you happen to be.
+
+```mermaid
+flowchart LR
+    rig["transceiver<br/>(e.g. IC-7300)"]
+    cwsd["cwsd<br/>(rig host)"]
+    subgraph clients["your operating machines"]
+      xlog2["xlog2<br/>desktop — GTK / Qt"]
+      android["xlog2-android<br/>phone"]
+    end
+    rig <-->|"USB · CAT, keying, audio"| cwsd
+    cwsd <-->|"IP · rigctld, cwdaemon, remote_key, Opus"| xlog2
+    cwsd <-->|"IP"| android
+```
 
 ### cwsd
 

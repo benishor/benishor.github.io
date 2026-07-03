@@ -11,11 +11,13 @@ tags:
 excerpt: "How a pile of annoyances — flaky contest tooling, an unmaintained logger, wanting to operate from the couch — grew into hamtools: cwsd, xlog2 and usb-paddles, a small suite that runs a whole ham station over the network. Part 1: the story."
 ---
 
-**hamtools** is a small suite of Linux ham-radio tools I wrote to run my station over the network — **cwsd** (a rig daemon), **xlog2** (a logging program) and **usb-paddles** (Morse-paddle firmware). Each is useful on its own; wired together they turn one radio into a fully network- and internet-operable station. This post is the story of how they came to be; a follow-up — [part 2: components and setup]({% post_url 2026-07-03-hamtools-components-and-setup %}) — tours each piece and how to run it.
+**hamtools** is a small suite of Linux ham-radio tools I wrote to run my station over the network: **cwsd** (a rig daemon), **xlog2** (a logging program) and **usb-paddles** (Morse-paddle firmware). Each is useful on its own; wired together they turn one radio into a fully network and internet-operable station.
+
+This post is the story of how they came to be; a follow-up [part 2: components and setup]({% post_url 2026-07-03-hamtools-components-and-setup %}) tours each piece and how to run it.
 
 ## A bit of history
 
-Everything started when Matei, YO3GEK, tried to get me into CW contesting. Being a Linux user, I tried the ubiquitous [tlf](https://tlf.github.io/) + [cwdaemon](https://github.com/acerion/cwdaemon/) + [rigctld](https://hamlib.sourceforge.net/html/rigctld.1.html) mix, but it quickly became annoying to have so many moving parts that randomly crashed. Long story short, that was the birth of **cwsd**. In its first incarnation it was just a simple binary interfacing the rig with hamlib and exposing a cwdaemon and a rigctld facade.
+Everything started when Matei, YO3GEK, tried to get me into CW contesting. Being a Linux user, I tried the ubiquitous [tlf](https://tlf.github.io/) + [cwdaemon](https://github.com/acerion/cwdaemon/) + [rigctld](https://hamlib.sourceforge.net/html/rigctld.1.html) mix, but it quickly became annoying to have so many moving parts crashing because cwdaemon and rigctld would try to control the same serial lines. Long story short, that was the birth of **cwsd**. In its first incarnation it was just a simple binary interfacing the rig with hamlib and exposing a cwdaemon and a rigctld facade.
 
 Matei and I tested it throughout contests, pairing it up with tlf for net keying and rig control. This brought to light bugs that were ironed out and further ideas that I slowly implemented.
 
@@ -43,8 +45,21 @@ I could finally take a breath and enjoy the fruits of my labour. But wait — wh
 
 And that's where the very same architectural decisions paid off. With the help of Claude, I put together an Android frontend in Kotlin on top of the same **xlog2** core library. Soon I had logging synchronized across all my devices, which was very satisfying. But wait — why not attempt something crazy, like remote operation from the phone itself? Would that even work? Only one way to find out: first **cwsd**'s audio streaming was integrated into the Android app, followed by the remote keyer. It was amazing to plug the keyer interface into my phone and actually have a QSO using the **xlog2** frontend running on the phone!
 
-At this point things felt like they were in a state where I could share the whole thing with fellow hams, who might make use of one component or the whole stack. It is all free, and always will be.
+At this point things felt like they were in a state where I could share the whole thing with fellow hams, who might make use of one component or the whole stack.
 
-That's the story. The [next post]({% post_url 2026-07-03-hamtools-components-and-setup %}) is the practical half — each component in turn (what it does, how to install and configure it), plus how the internet CW keying and the logbook sync mesh actually work.
+**It is all free, and always will be.** Every piece is GPL-3.0, with sources and design notes (`README` + `CLAUDE.md`) in each repo:
+
+- **cwsd** — <https://github.com/yo6ssw/cwsd>
+- **xlog2** — <https://github.com/yo6ssw/xlog2>
+- **usb-paddles** — <https://github.com/yo6ssw/usb-paddles>
+- **hamtools hub** (docs entry point) — <https://github.com/yo6ssw/hamtools>
+
+That's the story. If you want to run any of it, [part 2]({% post_url 2026-07-03-hamtools-components-and-setup %}) takes each component in turn, what it does, how to install and configure it and [part 3]({% post_url 2026-07-03-hamtools-how-it-works %}) digs into how the internet CW keying and the logbook sync mesh actually work.
+
+## Try it — and get in touch
+
+If any of this sounds useful, please try it and tell me how it goes. cwsd has really only been exercised against my IC-7300 and Matei's IC7610, so I'm especially keen to hear whether it drives your rig (and what broke if it didn't). Bug reports, feature ideas and pull requests are all welcome: open an issue on the relevant repo above, and if you build something on top of these, I'd genuinely love to see it.
+
+You can reach me at [adrian@scripca.ro](mailto:adrian@scripca.ro), as _benishor_ on [GitHub](https://github.com/benishor), or _YO6SSW_ on [QRZ](https://www.qrz.com/db/YO6SSW).
 
 73 · YO6SSW
