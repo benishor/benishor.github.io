@@ -120,11 +120,31 @@ The package also ships a udev rule that gives the rig a stable `/dev/icom7300` s
 
 For a quick manual run instead, handy while testing, just launch it in the foreground with `cwsd` (or `cwsd -d` to daemonize). Run that way, with no `--config`, it falls back to a per-user `~/.config/cwsdrc`; the systemd unit passes `--config /etc/cwsd/cwsdrc` explicitly.
 
+The whole install, start to finish, recorded as an [asciinema](https://asciinema.org/) session:
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/asciinema-player@3.8.0/dist/bundle/asciinema-player.css">
+<div id="cwsd-install-cast"></div>
+<script src="https://cdn.jsdelivr.net/npm/asciinema-player@3.8.0/dist/bundle/asciinema-player.min.js"></script>
+<script>
+  AsciinemaPlayer.create(
+    '{{ "/assets/install-cwsd.cast" | relative_url }}',
+    document.getElementById('cwsd-install-cast'),
+    { fit: 'width' }
+  );
+</script>
+
 ### xlog2
 
 **xlog2** is the logger and the operator console, a desktop amateur-radio logging program (a modern clone of [xlog](https://www.nongnu.org/xlog/), in C++20), built as a toolkit-neutral core with two interchangeable frontends: **xlog2-gtk** (GTK 4) and **xlog2-qt** (Qt 6).
 
 Both read and write the same `.xlog` SQLite logbooks and the same settings, so you can switch between them freely. On its own it handles the usual logging chores, live dupe detection, frequency→band, ADIF import/export, per-band/mode stats, DXCC from `cty.dat`, QRZ.com prefill, LoTW upload/confirmation via `tqsl`.
+
+<figure class="post-figure" markdown="0">
+  <a href="/assets/xlog2-overview.png" data-lightbox="xlog2-desktop" data-title="xlog2-qt — the desktop logger and operator console">
+    <img src="/assets/xlog2-overview-thumb.jpg" alt="xlog2-qt desktop console overview">
+  </a>
+  <figcaption>xlog2-qt on the laptop — logbook, band map and rig control in one console.</figcaption>
+</figure>
 
 Point it at a running **cwsd** and it also becomes the station's control surface:
 
@@ -187,6 +207,13 @@ The settings worth knowing:
 secret = a-high-entropy-shared-secret     # identical on every node
 ```
 
+<figure class="post-figure" markdown="0">
+  <a href="/assets/xlog2-trust.png" data-lightbox="xlog2-desktop" data-title="xlog2 — trusting a peer node on the sync mesh">
+    <img src="/assets/xlog2-trust-thumb.jpg" alt="xlog2 mesh peer trust dialog">
+  </a>
+  <figcaption>Nodes sharing the secret discover each other and ask to be trusted before joining the mesh.</figcaption>
+</figure>
+
 For an always-on backup that keeps the logbook merged even when your machines are asleep, you can make use of xlog-syncd.
 
 Install it with `sudo apt install xlog2-syncd`, set the same `[sync] secret`, then start it with `systemctl --user enable --now xlog2-syncd` (with `sudo loginctl enable-linger "$USER"` so it survives logout and runs at boot).
@@ -199,11 +226,36 @@ There's a mobile frontend, too: **xlog2-android**, a Kotlin/Jetpack Compose app 
 
 With a USB-OTG cable it even reads the same paddle for field CW, which is what finally made portable operating with the KX3 or QMX+ pleasant.
 
+<div class="screenshot-gallery" markdown="0">
+  <a href="/assets/xlog2-android-list.jpg" data-lightbox="xlog2-android" data-title="xlog2-android — the logbook, live on the mesh">
+    <img src="/assets/xlog2-android-list-thumb.jpg" alt="xlog2-android logbook list">
+  </a>
+  <a href="/assets/xlog2-android-new-qso.jpg" data-lightbox="xlog2-android" data-title="xlog2-android — logging a new QSO">
+    <img src="/assets/xlog2-android-new-qso-thumb.jpg" alt="xlog2-android new QSO entry">
+  </a>
+  <a href="/assets/xlog2-android-rig-audio.jpg" data-lightbox="xlog2-android" data-title="xlog2-android — rig and RX audio pointed at cwsd">
+    <img src="/assets/xlog2-android-rig-audio-thumb.jpg" alt="xlog2-android rig and audio settings">
+  </a>
+  <a href="/assets/xlog2-android-paddles.jpg" data-lightbox="xlog2-android" data-title="xlog2-android — paddle keyer over USB-OTG">
+    <img src="/assets/xlog2-android-paddles-thumb.jpg" alt="xlog2-android paddle settings">
+  </a>
+  <a href="/assets/xlog2-android-trust.jpg" data-lightbox="xlog2-android" data-title="xlog2-android — trusting the sync mesh">
+    <img src="/assets/xlog2-android-trust-thumb.jpg" alt="xlog2-android mesh trust dialog">
+  </a>
+</div>
+
 ### usb-paddles
 
 **usb-paddles** is firmware, not something you install on the PC — it runs on an STM32F411 board (typically [Black Pill](https://stm32-base.org/boards/STM32F103C8T6-Black-Pill.html) but I chose a Romanian [Magma Splash](https://ardushop.ro/en/development-boards/2184-groundstudio-magma-splash-6427854033680.html) for different reasons) and turns two paddle contacts into a vendor-defined (raw) USB HID device.
 
 Because it lives on a vendor usage page instead of pretending to be a keyboard, no OS input subsystem interprets it: it never types into the focused window, and only software that knows the report format reads it. It has sub-millisecond latency by design.
+
+<figure class="post-figure" markdown="0">
+  <a href="/assets/usb-paddles.jpg" data-lightbox="usb-paddles" data-title="usb-paddles — STM32F411 raw-HID keyer">
+    <img src="/assets/usb-paddles-thumb.jpg" alt="usb-paddles STM32 board">
+  </a>
+  <figcaption>The usb-paddles board — two paddle contacts to a vendor-defined USB HID device.</figcaption>
+</figure>
 
 **INSTALL**
 

@@ -88,3 +88,45 @@ code {
 
 
 
+
+/* Post figures + lightbox galleries (hamtools series) */
+.post-figure {
+	margin: 1.5rem 0;
+	text-align: center;
+}
+
+.post-figure img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 3px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}
+
+.post-figure figcaption {
+	margin-top: 0.5rem;
+	font-size: 0.85rem;
+	color: #888;
+	font-style: italic;
+}
+
+.screenshot-gallery {
+	margin: 1.5rem 0;
+}
+
+.screenshot-gallery::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.screenshot-gallery a {
+	float: left;
+	margin: 0 0.6rem 0.6rem 0;
+}
+
+.screenshot-gallery img {
+	max-width: 100%;
+	height: auto;
+	border-radius: 3px;
+	box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}
