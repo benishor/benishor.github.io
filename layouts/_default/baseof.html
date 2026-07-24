@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+
+  {{ partial "head.html" . }}
+
+  <body class="theme-base-0b">
+
+    {{ partial "sidebar.html" . }}
+
+    <div class="content container">
+      {{ block "main" . }}{{ end }}
+    </div>
+
+    {{ partial "footer-scripts.html" . }}
+
+    {{ if .Params.mermaid }}
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: false });
+      // The mermaid render hook emits <pre class="mermaid"> with the source
+      // HTML-escaped; textContent recovers the raw text (decoding &lt;br/&gt;
+      // back to <br/>) which mermaid then renders.
+      mermaid.run({ querySelector: 'pre.mermaid' });
+    </script>
+    {{ end }}
+  </body>
+</html>

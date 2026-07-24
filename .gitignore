@@ -1,4 +1,5 @@
-_site/*
-.jekyll-cache/
-vendor/
-.bundle/
+# Hugo build output & caches
+/public/
+/resources/_gen/
+/.hugo_build.lock
+hugo_stats.json

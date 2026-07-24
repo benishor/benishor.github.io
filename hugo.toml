@@ -1,0 +1,70 @@
+# Hugo configuration — migrated from Jekyll.
+baseURL = "https://blog.scene.ro/"
+languageCode = "en-us"
+title = "Code is Fun"
+enableRobotsTXT = true
+
+# The old Jekyll site had no /posts/ index and no /tags/ pages — keep that
+# surface identical (posts still render at their own /posts/<slug>/ URLs).
+disableKinds = ["section", "taxonomy", "term"]
+
+# Keep index.html feeds/pages tidy; posts live under /posts/<slug>/ to match
+# the old Jekyll permalink (/posts/:title/).
+[permalinks]
+  # Use the content filename (not the title) as the slug, matching the old
+  # Jekyll `:title` permalink where the date-stripped filename set the URL.
+  posts = "/posts/:contentbasename/"
+
+[pagination]
+  pagerSize = 5
+
+[services.googleAnalytics]
+  ID = "G-TPBBWKHJD6"
+
+[params]
+  tagline = "Adrian Scripcă's blog"
+  description = "Technical ramblings of a Senior Software Engineer"
+  github = "http://github.com/benishor"
+
+[author]
+  name = "Adrian Scripcă"
+  url = "https://github.com/benishor"
+  email = ""
+
+[markup]
+  [markup.goldmark.renderer]
+    # Posts embed raw HTML (figures, lightbox galleries, asciinema/mermaid).
+    unsafe = true
+  [markup.highlight]
+    # Emit CSS classes so the existing rouge stylesheet (syntax.css) applies.
+    noClasses = false
+    lineNos = false
+    codeFences = true
+    guessSyntax = false
+    tabWidth = 4
+
+# Related posts (replaces Jekyll's site.related_posts) — matched by tags.
+[related]
+  includeNewer = true
+  threshold = 40
+  toLower = true
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "date"
+    weight = 10
+
+# Custom Atom feed at /atom.xml (matches the old hand-written atom.xml).
+[mediaTypes."application/atom+xml"]
+  suffixes = ["xml"]
+
+[outputFormats.Atom]
+  mediaType = "application/atom+xml"
+  baseName = "atom"
+  isPlainText = false
+  rel = "alternate"
+  isHTML = false
+
+[outputs]
+  home = ["HTML", "Atom"]

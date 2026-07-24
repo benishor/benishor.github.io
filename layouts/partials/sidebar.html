@@ -1,0 +1,26 @@
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h1>
+        <a href="{{ site.Home.RelPermalink }}">
+          {{ site.Title }}
+        </a>
+      </h1>
+      <p class="lead">{{ site.Params.description }}</p>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item{{ if .IsHome }} active{{ end }}" href="{{ site.Home.RelPermalink }}">Home</a>
+
+      {{/* Nav items for pages that opt in via `menu: main` front matter
+           (the old sidebar listed every page with `layout: page`). */}}
+      {{ range site.Menus.main }}
+        <a class="sidebar-nav-item{{ if $.IsMenuCurrent "main" . }} active{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
+      {{ end }}
+
+      <a class="sidebar-nav-item" href="{{ site.Params.github }}">GitHub</a>
+    </nav>
+
+    <p>&copy; 2017 - 2026. All rights reserved.</p>
+  </div>
+</div>

@@ -1,0 +1,5 @@
+{{- /* Render ```mermaid fenced blocks as <pre class="mermaid">, HTML-escaping
+       the source so labels containing <br/> survive (recovered via textContent
+       by the mermaid init script in baseof.html). */ -}}
+<pre class="mermaid">{{ transform.HTMLEscape .Inner | safeHTML }}</pre>
+{{- .Page.Store.Set "hasMermaid" true -}}

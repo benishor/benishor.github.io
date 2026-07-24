@@ -1,0 +1,25 @@
+{{ define "main" }}
+<div class="post">
+  <h1 class="post-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+  <span class="post-date">{{ .Date.Format "02 Jan 2006" }}</span>
+  {{ .Content }}
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {{ range site.RegularPages.Related . | first 3 }}
+      <li>
+        <h3>
+          <a href="{{ .RelPermalink }}">
+            {{ .Title }}
+            <small>{{ .Date.Format "02 Jan 2006" }}</small>
+          </a>
+        </h3>
+      </li>
+    {{ end }}
+  </ul>
+</div>
+
+{{ partial "comments.html" . }}
+{{ end }}

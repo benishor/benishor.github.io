@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="page">
+  <h1 class="page-title">{{ .Title }}</h1>
+  {{ .Content }}
+
+  <dl>
+    {{ $tag := .Params.tag }}
+    {{ range (where site.RegularPages "Params.tags" "intersect" (slice $tag)).ByDate }}
+    <dt><a href="{{ .RelPermalink }}">{{ .Title }}</a></dt>
+    <dd>{{ with .Params.excerpt }}{{ . | markdownify }}{{ else }}{{ .Summary }}{{ end }}</dd>
+    {{ end }}
+  </dl>
+</div>
+{{ end }}
